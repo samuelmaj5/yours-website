@@ -60,32 +60,13 @@ body {
     padding: 1rem 0;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--yellow);
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.tiktok-button, .app-store-button {
     text-decoration: none;
-    letter-spacing: -1px;
-}
-
-.logo:hover {
-    color: var(--yellow);
-    opacity: 0.9;
-}
-
-.download-button {
-    background: var(--yellow);
-    color: var(--black);
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: var(--transition);
-}
-
-.download-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
 }
 
 /* Hero Section */
@@ -425,8 +406,8 @@ body {
         padding: 0.8rem 1rem;
     }
 
-    .logo {
-        font-size: 1.5rem;
+    .logo-img {
+        height: 32px;
     }
 
     .hero {
@@ -520,9 +501,9 @@ body {
 
 /* Footer */
 footer {
-    background: var(--black);
+    background: var(--dark-gray);
     padding: 4rem 0 2rem;
-    border-top: 1px solid rgba(255, 232, 31, 0.1);
+    color: var(--text-color);
 }
 
 .footer-content {
@@ -532,29 +513,56 @@ footer {
     margin-bottom: 2rem;
 }
 
-.footer-logo {
-    color: var(--yellow);
-    font-size: 1.5rem;
-    font-weight: 700;
+.footer-logo .logo-img {
+    height: 50px;
+    width: auto;
 }
 
-.footer-links a {
-    margin-left: 2rem;
-    text-decoration: none;
+.footer-links, .social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a, .social-links a {
     color: var(--text-color);
-    opacity: 0.8;
-    transition: var(--transition);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: var(--yellow);
+.footer-links a:hover, .social-links a:hover {
     opacity: 1;
 }
 
-.footer-bottom {
+.copyright {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 232, 31, 0.1);
-    color: var(--text-color);
     opacity: 0.6;
+    font-size: 0.9rem;
 }
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0.8rem 1rem;
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-logo .logo-img {
+        height: 40px;
+    }
+
+    .footer-links, .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
