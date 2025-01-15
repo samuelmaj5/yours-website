@@ -82,3 +82,35 @@ document.querySelectorAll('.feature-card, .cta-content').forEach(el => {
     el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
     observer.observe(el);
 });
+
+// Intersection Observer for feature cards animation
+const observerOptions2 = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+        }
+    });
+}, observerOptions2);
+
+// Observe all feature cards
+document.querySelectorAll('.feature-card').forEach(card => {
+    observer2.observe(card);
+});
+
+// Optional: Add hover effect for feature icons
+document.querySelectorAll('.feature-icon').forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+        icon.style.transition = 'transform 0.3s ease';
+    });
+    
+    icon.addEventListener('mouseout', () => {
+        icon.style.transform = 'scale(1) rotate(0deg)';
+    });
+});
