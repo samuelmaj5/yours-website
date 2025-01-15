@@ -97,8 +97,8 @@ const observer2 = new IntersectionObserver((entries) => {
             
             // Add some randomness to the animation
             const card = entry.target;
-            const randomRotate = (Math.random() - 0.5) * 20; // Random rotation between -10 and 10 degrees
-            const randomDelay = Math.random() * 0.2; // Random delay up to 0.2s
+            const randomRotate = (Math.random() - 0.5) * 15; // Reduced rotation
+            const randomDelay = Math.random() * 0.3 + 0.2; // Increased delay (0.2s to 0.5s)
             
             card.style.transform = `rotate(${randomRotate}deg)`;
             card.style.transitionDelay = `${randomDelay}s`;
@@ -106,13 +106,15 @@ const observer2 = new IntersectionObserver((entries) => {
             // Reset rotation after animation
             setTimeout(() => {
                 card.style.transform = 'none';
-            }, 600 + (randomDelay * 1000));
+            }, 1000 + (randomDelay * 1000)); // Increased duration
         }
     });
 }, observerOptions2);
 
 // Observe all feature cards
-document.querySelectorAll('.feature-card').forEach(card => {
+document.querySelectorAll('.feature-card').forEach((card, index) => {
+    // Add base delay based on index
+    card.style.transitionDelay = `${index * 0.2}s`; // Increased delay between cards
     observer2.observe(card);
 });
 
@@ -127,11 +129,11 @@ document.querySelectorAll('.feature-card').forEach(card => {
         // Calculate rotation based on mouse position
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 25; // Reduced rotation sensitivity
+        const rotateY = (centerX - x) / 25; // Reduced rotation sensitivity
         
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-        icon.style.transform = `scale(1.1) translate(${(centerX - x) / 20}px, ${(centerY - y) / 20}px)`;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`; // Reduced scale
+        icon.style.transform = `scale(1.1) translate(${(centerX - x) / 30}px, ${(centerY - y) / 30}px)`; // Reduced movement
     });
     
     card.addEventListener('mouseleave', () => {
