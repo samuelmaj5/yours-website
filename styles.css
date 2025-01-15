@@ -61,7 +61,7 @@ body {
 }
 
 .logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
 }
 
@@ -407,7 +407,7 @@ body {
     }
 
     .logo-img {
-        height: 32px;
+        height: 40px;
     }
 
     .hero {
@@ -514,7 +514,7 @@ footer {
 }
 
 .footer-logo .logo-img {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
@@ -546,7 +546,7 @@ footer {
     }
 
     .logo-img {
-        height: 32px;
+        height: 40px;
     }
 
     .footer-content {
@@ -556,7 +556,7 @@ footer {
     }
 
     .footer-logo .logo-img {
-        height: 40px;
+        height: 50px;
     }
 
     .footer-links, .social-links {
@@ -565,4 +565,3 @@ footer {
         gap: 1rem;
     }
 }
-
