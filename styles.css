@@ -61,13 +61,16 @@ body {
 }
 
 .logo {
-    height: 40px;
-    width: auto;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--yellow);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo:hover {
+    color: var(--yellow);
+    opacity: 0.9;
 }
 
 .download-button {
@@ -423,7 +426,7 @@ body {
     }
 
     .logo {
-        height: 32px;
+        font-size: 1.5rem;
     }
 
     .hero {
