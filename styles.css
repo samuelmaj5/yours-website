@@ -518,8 +518,16 @@ body {
     }
 
     .cta-group {
+        flex-direction: row;
         justify-content: center;
+        align-items: center;
+        gap: 1rem;
         flex-wrap: wrap;
+    }
+
+    .app-store-button, .tiktok-button {
+        display: inline-flex;
+        align-items: center;
     }
 
     .app-store-button img {
