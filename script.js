@@ -86,14 +86,27 @@ document.querySelectorAll('.feature-card, .cta-content').forEach(el => {
 // Intersection Observer for feature cards animation
 const observerOptions2 = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: '-20px',
+    threshold: 0.2
 };
 
 const observer2 = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate');
+            
+            // Add some randomness to the animation
+            const card = entry.target;
+            const randomRotate = (Math.random() - 0.5) * 20; // Random rotation between -10 and 10 degrees
+            const randomDelay = Math.random() * 0.2; // Random delay up to 0.2s
+            
+            card.style.transform = `rotate(${randomRotate}deg)`;
+            card.style.transitionDelay = `${randomDelay}s`;
+            
+            // Reset rotation after animation
+            setTimeout(() => {
+                card.style.transform = 'none';
+            }, 600 + (randomDelay * 1000));
         }
     });
 }, observerOptions2);
@@ -101,6 +114,31 @@ const observer2 = new IntersectionObserver((entries) => {
 // Observe all feature cards
 document.querySelectorAll('.feature-card').forEach(card => {
     observer2.observe(card);
+});
+
+// Add interactive hover effect for feature icons
+document.querySelectorAll('.feature-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const icon = card.querySelector('.feature-icon');
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Calculate rotation based on mouse position
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        icon.style.transform = `scale(1.1) translate(${(centerX - x) / 20}px, ${(centerY - y) / 20}px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        const icon = card.querySelector('.feature-icon');
+        icon.style.transform = 'scale(1) translate(0, 0)';
+    });
 });
 
 // Optional: Add hover effect for feature icons
