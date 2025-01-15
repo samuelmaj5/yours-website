@@ -154,3 +154,28 @@ document.querySelectorAll('.feature-icon').forEach(icon => {
         icon.style.transform = 'scale(1) rotate(0deg)';
     });
 });
+
+// Scroll to Top Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollToTopButton = document.createElement('div');
+    scrollToTopButton.classList.add('scroll-to-top');
+    scrollToTopButton.innerHTML = '↑';
+    document.body.appendChild(scrollToTopButton);
+
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopButton.classList.add('show');
+        } else {
+            scrollToTopButton.classList.remove('show');
+        }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
