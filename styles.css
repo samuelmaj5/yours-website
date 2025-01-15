@@ -19,6 +19,9 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .noise-overlay {
@@ -419,8 +422,8 @@ body {
 
 .media-track {
     display: flex;
-    animation: scroll 15s linear infinite;
-    width: calc(180px * 9);
+    animation: scroll 20s linear infinite;
+    width: calc(180px * 12);
     gap: 2rem;
 }
 
@@ -449,15 +452,15 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-180px * 9));
+        transform: translateX(calc(-180px * 12));
     }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .media-track {
-        width: calc(140px * 9);
-        animation: scroll 12s linear infinite;
+        width: calc(140px * 12);
+        animation: scroll 16s linear infinite;
         gap: 1.5rem;
     }
 
@@ -471,7 +474,7 @@ body {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(-140px * 9));
+            transform: translateX(calc(-140px * 12));
         }
     }
 }
@@ -651,4 +654,47 @@ footer {
         justify-content: center;
         gap: 1rem;
     }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.page-content {
+    flex: 1;
+    padding-top: 80px;
+    min-height: calc(100vh - 200px);
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--yellow);
+    color: var(--black);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: var(--yellow);
+    transform: translateY(-3px);
 }
