@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yours.app/sitemap.xml
+
+# Directories to exclude
+Disallow: /pages/private/
+Disallow: /admin/
+
+# Specific file exclusions
+Disallow: /internal-notes.txt
