@@ -698,3 +698,18 @@ html {
     background: var(--yellow);
     transform: translateY(-3px);
 }
+
+body {
+    cursor: none; /* Hide the default cursor */
+}
+
+.cursor-large {
+    position: fixed;
+    width: 50px; /* Adjust the size */
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 232, 31, 0.8); /* Yellow cursor */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s linear;
+}
