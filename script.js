@@ -182,11 +182,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", function() {
     const cursor = document.createElement("div");
-    cursor.classList.add("cursor-large");
+    cursor.classList.add("cursor-pixel");
     document.body.appendChild(cursor);
 
     document.addEventListener("mousemove", function(e) {
-        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
     });
 });
+
 
