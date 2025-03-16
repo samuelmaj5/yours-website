@@ -705,13 +705,14 @@ body {
 
 .cursor-pixel {
     position: fixed;
-    width: 32px; /* Adjust the size */
+    width: 32px; /* Adjust size */
     height: 32px;
-    background: white; /* Cursor color */
-    border: 4px solid black; /* Outline to make it look pixelated */
-    transform: translate(-50%, -50%);
-    image-rendering: pixelated; /* Ensures pixel-perfect scaling */
+    background: none;
+    image-rendering: pixelated; /* Make it sharp */
     pointer-events: none;
     z-index: 10000;
+    background-image: url('images/pixel-cursor.png'); /* Use an actual pixel cursor */
+    background-size: contain;
 }
+
 
