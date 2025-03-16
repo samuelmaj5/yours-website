@@ -699,6 +699,9 @@ html {
     transform: translateY(-3px);
 }
 
+body {
+    cursor: none; /* Hide the default cursor */
+}
 
 .cursor-pixel {
     position: fixed;
@@ -708,7 +711,7 @@ html {
     image-rendering: pixelated; /* Make it sharp */
     pointer-events: none;
     z-index: 10000;
-    background-image: url('images/pixel-cursor.png'); /* Use an actual pixel cursor */
+    background-image: url('pixel-cursor.png'); /* Use an actual pixel cursor */
     background-size: contain;
 }
 
