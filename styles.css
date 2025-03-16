@@ -699,20 +699,4 @@ html {
     transform: translateY(-3px);
 }
 
-body {
-    cursor: none; /* Hide the default cursor */
-}
-
-.cursor-pixel {
-    position: fixed;
-    width: 32px; /* Adjust size */
-    height: 32px;
-    background: none;
-    image-rendering: pixelated; /* Make it sharp */
-    pointer-events: none;
-    z-index: 10000;
-    background-image: url('pixel-cursor.png'); /* Use an actual pixel cursor */
-    background-size: contain;
-}
-
 
